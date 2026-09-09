@@ -14,37 +14,45 @@ export type navItem = navLinkItem | navDropdownItem;
 // note: 1 level of dropdown is supported
 const navConfig: navItem[] = [
 	{
-		text: "Home",
+		text: "Inicio",
 		link: "/",
 	},
 	{
-		text: "portfolios",
-		link: "/portfolio/",
+		text: "Ilustraciones",
+		link: "/#ilustraciones/",
 	},
 	{
-		text: "Pricing",
-		link: "/#pricing",
+		text: "Comisiones",
+		link: "/#comisiones",
 	},
 	{
-		text: "Pages",
+		text: "Comics",
 		dropdown: [
 			{
-				text: "Portfolio",
-				link: "/portfolio/couple-1/",
+				text: "Anemoia",
+				link: "/comics/anemoia",
 			},
 			{
-				text: "Legal",
-				link: "/privacy-policy/",
+				text: "El secreto entre nosotros",
+				link: "/comics/el-secreto-entre-nosotros",
 			},
 			{
-				text: "Elements",
-				link: "/elements/",
+				text: "Máscara de Coyote",
+				link: "/comics/mascara-de-coyote",
 			},
 			{
-				text: "404",
-				link: "/not-a-link/",
+				text: "Tinkunakama",
+				link: "/comics/tinkunakama",
 			},
 		],
+	},
+	{
+		text: "Blog",
+		link: "/blog",
+	},
+	{
+		text: "About",
+		link: "/#about",
 	},
 ];
 
