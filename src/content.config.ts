@@ -62,8 +62,31 @@ const otherPages = defineCollection({
 		}),
 });
 
+const comics = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/data/comics",
+	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			coverImage: image(),
+			status: z.enum(["próximamente", "en curso", "completo", "cancelado"]),
+			links: z.array(
+				z.object({
+					label: z.string(),
+					url: z.string().url(),
+				}),
+			),
+			order: z.number(),
+			draft: z.boolean().optional(),
+		}),
+});
+
 export const collections = {
 	portfolios,
 	testimonials,
 	otherPages,
+	comics,
 };

@@ -1,0 +1,42 @@
+---
+import Button from "@components/Button/Button.astro";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	comic: CollectionEntry<"comics">;
+	direction: "horizontal" | "vertical";
+}
+
+const { comic, direction } = Astro.props as Props;
+const { title, description, coverImage, status } = comic.data;
+
+
+---
+
+<div
+	class:list={[
+		"grid gap-4",
+		{ "md:grid-cols-2": direction === "horizontal" },
+	]}
+>
+	<a href={`/comics/${comic.id}/`} class="aspect-[3/4] overflow-hidden block">
+		<Image
+			src={coverImage}
+			alt={title}
+			width={450}
+			densities={[1.5, 2, 3]}
+			class="h-auto min-h-full w-full min-w-full object-cover"
+		/>
+	</a>
+	<div class="flex flex-col justify-between gap-2">
+		<div>
+			<span class="text-primary-500 text-sm tracking-widest uppercase">{status}</span>
+			<h3 class="h3 mt-1 tracking-widest">{title}</h3>
+			<p class="mt-2 lg:text-lg">{description}</p>
+		</div>
+		<Button variant="ghost" arrow="right" href={`/comics/${comic.id}/`} class="pl-0">
+			Leer más
+		</Button>
+	</div>
+</div>

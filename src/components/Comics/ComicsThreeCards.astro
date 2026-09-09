@@ -1,0 +1,41 @@
+---
+import Button from "@components/Button/Button.astro";
+import ComicCard from "@components/ComicCard/ComicCard.astro";
+import { getCollection } from "astro:content";
+
+const comics = await getCollection("comics", ({ data }) => data.draft !== true);
+
+const statusPriority: Record<string, number> = {
+	"en curso": 0,
+	"completo": 1,
+	"próximamente": 2,
+	"cancelado": 3,
+};
+
+const sortedComics = comics.sort((a, b) => {
+	const statusDiff = statusPriority[a.data.status] - statusPriority[b.data.status];
+	if (statusDiff !== 0) return statusDiff;
+	return a.data.order - b.data.order;
+});
+const firstThreeComics = sortedComics.slice(0, 3);
+---
+
+<section id="comics" class="site-container mt-12 scroll-mt-10 py-8 md:py-12">
+	<div class="mx-auto max-w-6xl text-center">
+		<h2 class="h2 text-pretty uppercase">Mis cómics</h2>
+	</div>
+	<div class="grid gap-10 pt-8 md:grid-cols-2 md:pt-12">
+		<div class="md:bg-base-100 md:rounded-md md:p-10 md:pb-6">
+			<ComicCard comic={firstThreeComics[0]} direction="vertical" />
+		</div>
+		<div class="flex h-full flex-col justify-between gap-y-6">
+			<ComicCard comic={firstThreeComics[1]} direction="horizontal" />
+			<hr class="border-base-100 hidden border md:block" />
+			<ComicCard comic={firstThreeComics[2]} direction="horizontal" />
+		</div>
+	</div>
+
+	<div class="mt-12 flex justify-center">
+		<Button href="/comics/" variant="outline">Ver todos los cómics</Button>
+	</div>
+</section>

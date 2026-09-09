@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { type InferGetStaticPropsType } from "astro";
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+import Button from "@components/Button/Button.astro";
+
+export async function getStaticPaths() {
+	const comics = await getCollection("comics", ({ data }) => {
+		return data.draft !== true;
+	});
+
+	return comics.map((comic) => ({
+		params: { slug: comic.id },
+		props: comic,
+	}));
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const comic = Astro.props as Props;
+const { Content } = await render(comic);
+---
+
+<BaseLayout title={comic.data.title} description={comic.data.description}>
+	<div class="site-container pt-24 md:pt-36">
+		<div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+			<Image
+				src={comic.data.coverImage}
+				alt={comic.data.title}
+				class="aspect-[3/4] w-full rounded object-cover"
+			/>
+			<div>
+				<span class="text-primary-500 text-sm tracking-widest uppercase">{comic.data.status}</span>
+				<h1 class="h2 mt-1">{comic.data.title}</h1>
+				<div class="prose mt-6">
+					<Content />
+				</div>
+				<ul class="mt-8 flex flex-wrap gap-3">
+					{comic.data.links.map((link) => (
+						<li>
+							<Button variant="ghost" arrow="right" href={link.url} target="_blank" rel="noopener noreferrer">
+								{link.label}
+							</Button>
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	</div>
+</BaseLayout>

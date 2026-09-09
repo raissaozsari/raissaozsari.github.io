@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import ComicCard from "@components/ComicCard/ComicCard.astro";
+
+const comics = await getCollection("comics", ({ data }) => data.draft !== true);
+
+const statusPriority: Record<string, number> = {
+	"en curso": 0,
+	"completo": 1,
+	"próximamente": 2,
+	"cancelado": 3,
+};
+
+const sortedComics = comics.sort((a, b) => {
+	const statusDiff = statusPriority[a.data.status] - statusPriority[b.data.status];
+	if (statusDiff !== 0) return statusDiff;
+	return a.data.order - b.data.order;
+});
+---
+
+<BaseLayout title="Cómics" description="Cómics de Raissa Ozsari.">
+	<div class="site-container pt-24 md:pt-36">
+		<h1 class="h2 text-center uppercase">Mis Cómics</h1>
+		<div class="grid gap-x-4 gap-y-10 pt-8 md:grid-cols-3 md:pt-12">
+			{sortedComics.map((comic) => <ComicCard comic={comic} direction="vertical" />)}
+		</div>
+	</div>
+</BaseLayout>
