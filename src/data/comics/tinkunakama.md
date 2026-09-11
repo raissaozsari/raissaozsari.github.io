@@ -1,7 +1,7 @@
 ---
 title: "Tinkunakama"
 description: "¿Qué te espera en la cima?"
-coverImage: "./anemoia-cover.jpg"
+coverImage: "./tinkunakama-cover.jpg"
 status: "próximamente"
 links:
   - label: "Leer en el blog"
@@ -11,4 +11,4 @@ links:
 order: 1
 ---
 
-Sinopsis o descripción larga del cómic va aquí, en markdown normal.
+Vera escala hasta la cima del Chimborazo, teniendo un inesperado encuentro.

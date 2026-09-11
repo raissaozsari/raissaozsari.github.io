@@ -1,6 +1,6 @@
 ---
-title: Yamil
-testimonial: Jenna has a way of making us feel like the only people in the room. The photos she delivered were beyond our expectations, capturing the joy, love, and beauty of our special day in a way that we will treasure forever.
-image: ./couple-8-crop.jpg
+title: Cass
+testimonial: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in posuere dolor, eget fringilla magna. In sit amet arcu urna. Mauris interdum enim vitae arcu fermentum vulputate. Mauris nisi massa, placerat sed nibh vel, fermentum consectetur nisi. - Facebook
+image: ./Cass.png
 order: 1
 ---

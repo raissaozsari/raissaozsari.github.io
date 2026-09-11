@@ -1,6 +1,6 @@
 ---
-title: Cass
-testimonial: Hiring Jenna was one of the best decisions we made for our wedding. Not only was their work incredibly professional and artistic, but they also made us feel so comfortable and at ease throughout the entire process.
-image: ./couple-2-crop.jpg
+title: Natii
+testimonial: La experiencia que me lleve trabajando con Raissa Ozsari fue muy agradable , atenta a todos los detalles que se establecieron en la comisión, buena atencion y comunicacion clara, yo volveré a trabajar con ella!!! Es una gran artista a quien recomiendo para futuros trabajos✨️!!! - Vgen
+image: ./Natii.png
 order: 1
 ---

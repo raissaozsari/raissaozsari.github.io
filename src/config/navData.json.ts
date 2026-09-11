@@ -19,11 +19,11 @@ const navConfig: navItem[] = [
 	},
 	{
 		text: "Ilustraciones",
-		link: "/#ilustraciones/",
+		link: "/ilustraciones/",
 	},
 	{
 		text: "Comisiones",
-		link: "/#comisiones",
+		link: "/comisiones",
 	},
 	{
 		text: "Comics",

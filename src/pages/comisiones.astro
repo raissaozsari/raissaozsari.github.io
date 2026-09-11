@@ -1,0 +1,65 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button/Button.astro";
+import { Image } from "astro:assets";
+import Contact from "@components/Contact/Contact.astro";
+import { pricingData } from "@/data/pricingData";
+import { getEntry, render } from "astro:content";
+
+const tosEntry = await getEntry("otherPages", "tos");
+
+if (!tosEntry) {
+	throw new Error("No se encontró src/data/otherPages/tos.md");
+}
+
+const { Content: TosContent } = await render(tosEntry);
+
+---
+
+<BaseLayout title="Comisiones" description="Paquetes de comisiones de ilustración por Raissa Ozsari.">
+	<div class="site-container pt-24 md:pt-36">
+		<h1 class="h2 text-center uppercase">Comisiones</h1>
+
+		<!-- Paquetes -->
+		<div class="mt-12 grid gap-8 md:grid-cols-3">
+	{
+		pricingData.map((plan) => (
+			<div>
+				<div class="aspect-[3/4] overflow-hidden rounded-xl">
+					<Image src={plan.image} alt={plan.name} width={400} class="h-full w-full object-cover" />
+				</div>
+				<h2 class="h3 mt-4">{plan.name}</h2>
+				<p class="font-decorative mt-1 text-3xl">${plan.price}+</p>
+				<ul class="mt-4 flex flex-col gap-2">
+					{plan.features.map((line) => (
+						<li class="lg:text-lg">{line}</li>
+					))}
+				</ul>
+			</div>
+		))
+	}
+</div>
+
+		<!-- Enlaces para pedir -->
+		<div class="mt-20 text-center">
+			<h2 class="h3 uppercase">Pedir comisión</h2>
+			<p class="mt-2 lg:text-lg">Puedes solicitar tu comisión por cualquiera de estos medios:</p>
+			<div class="mt-6 flex flex-wrap justify-center gap-4">
+				<Button variant="outline" href="https://vgen.co/RaissaOzsari" target="_blank" rel="noopener noreferrer">VGen</Button>
+				<Button variant="outline" href="https://ko-fi.com/RaissaOzsari/commissions" target="_blank" rel="noopener noreferrer">Ko-fi</Button>
+				<Button variant="outline" href="https://www.commissions.gg/raissaozsari" target="_blank" rel="noopener noreferrer">CommissionsGG</Button>
+				<Button variant="primary" href="/#contact">Formulario directo</Button>
+			</div>
+		</div>
+
+		<!-- TOS -->
+		<div id="tos" class="mt-20 mx-auto max-w-3xl scroll-mt-24">
+			<h2 class="h3 text-center uppercase">Términos de servicio</h2>
+			<div class="markdown-content mt-6">
+				<TosContent />
+			</div>
+		</div>
+
+        <Contact class="mt-20" />
+	</div>
+</BaseLayout>

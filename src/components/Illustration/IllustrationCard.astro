@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	illustration: CollectionEntry<"portfolios">;
+	class?: string;
+}
+
+const { illustration, class: className = "" } = Astro.props;
+const { title, image, type } = illustration.data;
+---
+
+<button
+	type="button"
+	class:list={["illustration-item group relative block aspect-square overflow-hidden rounded-xl", className]}
+	data-full-src={image.src}
+	data-title={title}
+>
+	<Image src={image} alt={title} width={500} densities={[1.5, 2]} class="h-full w-full object-cover" />
+	<span
+		class="absolute inset-x-0 bottom-0 flex items-center justify-between bg-black/60 px-3 py-2 text-sm text-white opacity-0 transition-opacity group-hover:opacity-100"
+	>
+		<span>{title}</span>
+		<span class="text-primary-200 uppercase">{type}</span>
+	</span>
+</button>

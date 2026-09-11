@@ -4,6 +4,7 @@ import { type InferGetStaticPropsType } from "astro";
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 import Button from "@components/Button/Button.astro";
+import  ComicCard  from "@components/ComicCard/ComicCard.astro";
 
 export async function getStaticPaths() {
 	const comics = await getCollection("comics", ({ data }) => {
@@ -19,6 +20,10 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const comic = Astro.props as Props;
 const { Content } = await render(comic);
+
+const otherComics = await getCollection("comics", (otherComic) => {
+	return otherComic.data.draft !== true && otherComic.id !== comic.id;
+});
 ---
 
 <BaseLayout title={comic.data.title} description={comic.data.description}>
@@ -27,12 +32,12 @@ const { Content } = await render(comic);
 			<Image
 				src={comic.data.coverImage}
 				alt={comic.data.title}
-				class="aspect-[3/4] w-full rounded object-cover"
+				class="aspect-[3/4] w-full rounded-xl object-cover"
 			/>
 			<div>
 				<span class="text-primary-500 text-sm tracking-widest uppercase">{comic.data.status}</span>
 				<h1 class="h2 mt-1">{comic.data.title}</h1>
-				<div class="prose mt-6">
+				<div class="markdown-content mt-6">
 					<Content />
 				</div>
 				<ul class="mt-8 flex flex-wrap gap-3">
@@ -46,5 +51,15 @@ const { Content } = await render(comic);
 				</ul>
 			</div>
 		</div>
+
+		<section class="site-container mt-16 md:mt-20">
+	<h2 class="h2 text-center uppercase">Más cómics</h2>
+	<div class="grid gap-x-4 gap-y-10 pt-8 md:grid-cols-3 md:pt-12">
+		{otherComics.map((otherComic) => <ComicCard comic={otherComic} direction="vertical" />)}
 	</div>
+</section>
+	</div>
+
+	
+	
 </BaseLayout>

@@ -11,4 +11,4 @@ links:
 order: 1
 ---
 
-Sinopsis o descripción larga del cómic va aquí, en markdown normal.
+Un chico pobre se encuentra una máscara en su trabajo de albañil, ahora su vida está llena de memes rancios y referencias que solo los millennials entienden.

@@ -11,4 +11,13 @@ links:
 order: 1
 ---
 
-Sinopsis o descripción larga del cómic va aquí, en markdown normal.
+Éryx nunca confió en nadie. Excepto por su hermano Attis. La muerte del niño llega repentina, y él no está listo para aceptar su pérdida.
+
+
+¿Qué hacer entonces? Como experto en inteligencia artificial, Éryx comienza a replicar la mente de su hermano, trabajando sin parar en su nuevo proyecto. ¡Incluso pide ayuda a una mujer que apenas conoce!
+
+
+Parece ser que Éryx recobra su vieja vida, más extraños eventos comienzan a suceder.
+
+
+¿Harán estos que él se detenga?

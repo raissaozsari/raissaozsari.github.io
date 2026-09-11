@@ -20,7 +20,7 @@ const { title, description, coverImage, status } = comic.data;
 		{ "md:grid-cols-2": direction === "horizontal" },
 	]}
 >
-	<a href={`/comics/${comic.id}/`} class="aspect-[3/4] overflow-hidden block">
+	<a href={`/comics/${comic.id}/`} class="aspect-[3/4] overflow-hidden block rounded-xl">
 		<Image
 			src={coverImage}
 			alt={title}

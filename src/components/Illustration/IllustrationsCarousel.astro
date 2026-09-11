@@ -1,0 +1,27 @@
+---
+import Button from "@components/Button/Button.astro";
+import IllustrationCard from "@components/Illustration/IllustrationCard.astro";
+import { getCollection } from "astro:content";
+
+const illustrations = await getCollection("portfolios", ({ data }) => data.draft !== true);
+const sorted = illustrations.sort((a, b) => a.data.order - b.data.order);
+const preview = sorted.slice(0, 5);
+---
+
+<section id="ilustraciones" class="site-container mt-12 scroll-mt-10 py-8 md:py-12">
+	<div class="mx-auto max-w-6xl text-center">
+		<h2 class="h2 text-pretty uppercase">Ilustraciones</h2>
+	</div>
+
+	<div class="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 md:mt-12">
+		{
+			preview.map((illustration) => (
+				<IllustrationCard illustration={illustration} class="w-64 shrink-0 snap-start md:w-80" />
+			))
+		}
+	</div>
+
+	<div class="mt-8 flex justify-center">
+		<Button href="/ilustraciones/" variant="outline">Ver todas</Button>
+	</div>
+</section>
