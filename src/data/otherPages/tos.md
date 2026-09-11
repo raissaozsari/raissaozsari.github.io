@@ -177,7 +177,7 @@ Si hay un acuerdo de confidencialidad, el trabajo no será utilizado con propós
 - Reclamar el trabajo de tu autoría o fallar en acreditarme.
 - Retirar firmas o marcas de agua.
 - Revender o redistribuir mi trabajo.
-- Modificar el trabajo con mi consentimiento.
+- Modificar el trabajo sin mi consentimiento.
 - Usar trabajo comprado como de uso personal para realizar mercancía, streaming o proyectos comerciales.
 
 ## **POLÍTICA DE LISTA NEGRA.**

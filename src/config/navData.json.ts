@@ -26,7 +26,7 @@ const navConfig: navItem[] = [
 		link: "/comisiones",
 	},
 	{
-		text: "Comics",
+		text: "Cómics",
 		dropdown: [
 			{
 				text: "Anemoia",
@@ -51,8 +51,8 @@ const navConfig: navItem[] = [
 		link: "/blog",
 	},
 	{
-		text: "About",
-		link: "/#about",
+		text: "Sobre mí",
+		link: "/#sobre mí",
 	},
 ];
 
