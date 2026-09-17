@@ -184,5 +184,11 @@ Si hay un acuerdo de confidencialidad, el trabajo no será utilizado con propós
 - Romper estas reglas puede resultar estar en una lista negra permanente (con evidencia).
 - La lista puede ser compartida con otros artistas.
 
+## **PRIVACIDAD.**
+
+Esta cuenta utiliza un seudónimo. 
+En caso de problemas relacionados con esta cuenta o en cuanto a mis servicios, utiliza únicamente la información que he hecho pública. Mi nombre legal y otros datos personales que no haya publicado no forman parte de mi identidad pública y no deben divulgarse.
+Mi actividad profesional y mis asuntos personales son ámbitos separados, mis datos personales y mi nombre legal no deben divulgarse por conflictos relacionados con asuntos privados.
+
 ## **ACUERDO FINAL.**
 - Al comisionarme, reconoces que has leído, entendido y acordado todos los términos descritos anteriormente.
